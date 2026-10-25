@@ -1,0 +1,20 @@
+/* BV Chitkala (Devanagari, from Chanakya / Walkman-Chanakya / Chanakyamath) and BV Nanda (IAST, from Nalandagar) */
+@font-face { font-family: 'BVChitkala'; font-style: normal; font-weight: 700; src: url(./BVChitkala-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala'; font-style: italic; font-weight: 700; src: url(./BVChitkala-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala'; font-style: italic; font-weight: 400; src: url(./BVChitkala-Italic.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala'; font-style: normal; font-weight: 400; src: url(./BVChitkala-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Hindi'; font-style: normal; font-weight: 700; src: url(./BVChitkalaHindi-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Hindi'; font-style: italic; font-weight: 700; src: url(./BVChitkalaHindi-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Hindi'; font-style: italic; font-weight: 400; src: url(./BVChitkalaHindi-Italic.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Hindi'; font-style: normal; font-weight: 400; src: url(./BVChitkalaHindi-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Hindi Heavy'; font-style: normal; font-weight: 400; src: url(./BVChitkalaHindiHeavy-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Math'; font-style: normal; font-weight: 700; src: url(./BVChitkalaMath-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Math'; font-style: italic; font-weight: 700; src: url(./BVChitkalaMath-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'BVChitkala Math'; font-style: normal; font-weight: 400; src: url(./BVChitkalaMath-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'BVNanda'; font-style: normal; font-weight: 700; src: url(./BVNanda-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'BVNanda'; font-style: italic; font-weight: 700; src: url(./BVNanda-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'BVNanda'; font-style: italic; font-weight: 400; src: url(./BVNanda-Italic.ttf) format('truetype'); }
+@font-face { font-family: 'BVNanda'; font-style: normal; font-weight: 400; src: url(./BVNanda-Regular.ttf) format('truetype'); }
+/* BV Matanga: Kannada display type inspired by the Matangeshvara rock inscription (SIL OFL 1.1) */
+@font-face { font-family: 'BVMatanga'; font-style: normal; font-weight: 400; src: url(./BVMatanga-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'BVMatanga'; font-style: normal; font-weight: 700; src: url(./BVMatanga-Bold.ttf) format('truetype'); }

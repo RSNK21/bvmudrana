@@ -1,0 +1,18 @@
+/* Praja Unicode: the Prajavani Praja letterforms as Unicode Kannada fonts (Brahmavidya Praja Unicode kit) */
+@font-face { font-family: 'Praja Unicode'; font-style: normal; font-weight: 400; src: url(./PrajaUnicode-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode'; font-style: italic; font-weight: 400; src: url(./PrajaUnicode-Italic.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode'; font-style: normal; font-weight: 700; src: url(./PrajaUnicode-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode'; font-style: italic; font-weight: 700; src: url(./PrajaUnicode-BoldItalic.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode Demi'; font-style: normal; font-weight: 400; src: url(./PrajaUnicode-Demi.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode Demi'; font-style: italic; font-weight: 400; src: url(./PrajaUnicode-DemiItalic.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode Light'; font-style: normal; font-weight: 400; src: url(./PrajaUnicode-Light.ttf) format('truetype'); }
+@font-face { font-family: 'Praja Unicode Light'; font-style: italic; font-weight: 400; src: url(./PrajaUnicode-LightItalic.ttf) format('truetype'); }
+/* Praja01-Praja08: the Praja design in the Nudi ASCII layout (for text typed with Nudi in ASCII mode) */
+@font-face { font-family: 'Praja01'; font-style: normal; font-weight: 400; src: url(./Praja01.ttf) format('truetype'); }
+@font-face { font-family: 'Praja02'; font-style: normal; font-weight: 400; src: url(./Praja02.ttf) format('truetype'); }
+@font-face { font-family: 'Praja03'; font-style: normal; font-weight: 400; src: url(./Praja03.ttf) format('truetype'); }
+@font-face { font-family: 'Praja04'; font-style: normal; font-weight: 400; src: url(./Praja04.ttf) format('truetype'); }
+@font-face { font-family: 'Praja05'; font-style: normal; font-weight: 400; src: url(./Praja05.ttf) format('truetype'); }
+@font-face { font-family: 'Praja06'; font-style: normal; font-weight: 400; src: url(./Praja06.ttf) format('truetype'); }
+@font-face { font-family: 'Praja07'; font-style: normal; font-weight: 400; src: url(./Praja07.ttf) format('truetype'); }
+@font-face { font-family: 'Praja08'; font-style: normal; font-weight: 400; src: url(./Praja08.ttf) format('truetype'); }

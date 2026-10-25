@@ -1,0 +1,106 @@
+{
+  "name": "bv-mudrana",
+  "version": "0.9.2",
+  "description": "PageMaker-style layout with Unicode Kannada, Devanagari and IAST",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64 && bash build/make-update.sh"
+  },
+  "keywords": [],
+  "author": "Brahmavidya",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "cfb": "^1.2.2",
+    "jszip": "^3.10.1",
+    "mammoth": "^1.13.0",
+    "pako": "^1.0.11",
+    "utif": "^3.1.0"
+  },
+  "productName": "BV Mudrana",
+  "build": {
+    "appId": "in.brahmavidya.mudrana",
+    "productName": "BV Mudrana",
+    "copyright": "Brahmavidya",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "pmimport.js",
+      "helpers/pmdde.exe",
+      "pmsave.js",
+      "indesign.js",
+      "fontscan.js",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "bvm",
+        "name": "BV Mudrana publication",
+        "description": "BV Mudrana publication",
+        "role": "Editor"
+      },
+      {
+        "ext": [
+          "pmd",
+          "p65",
+          "pm6",
+          "pm7",
+          "pmt",
+          "pm5",
+          "pm4"
+        ],
+        "name": "PageMaker publication",
+        "description": "PageMaker publication",
+        "role": "Viewer"
+      },
+      {
+        "ext": "idml",
+        "name": "InDesign Markup",
+        "description": "InDesign Markup (IDML)",
+        "role": "Viewer"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "BV Mudrana",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
+      "include": "build/installer.nsh"
+    },
+    "publish": null,
+    "asarUnpack": [
+      "helpers/**",
+      "renderer/fonts/praja/*.ttf",
+      "renderer/fonts/bv/*.ttf"
+    ],
+    "extraResources": [
+      {
+        "from": "build/bvm-runtime.txt",
+        "to": "bvm-runtime.txt"
+      }
+    ]
+  }
+}

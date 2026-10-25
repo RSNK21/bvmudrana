@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data: bvfont:; script-src 'self'">
+<title>BV Mudrana</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="themes.css">
+<link rel="stylesheet" href="v9.css">
+</head>
+<body>
+<div id="app">
+  <!-- Title bar with PageMaker's menus (drawn by BV Mudrana, not the system) -->
+  <header id="titlebar">
+    <button id="tb-logo" class="tb-brand" aria-label="About BV Mudrana"><img src="img/mandapa-sm.png" alt=""><span>BV&nbsp;Mudrana</span></button>
+    <nav id="menubar" role="menubar" aria-label="Menus"></nav>
+    <div id="tb-title" class="tb-title"></div>
+    <div class="tb-credit" title="BV Mudrana was designed by Tejas H Badala for Brahmavidya"><span class="tb-orn">❦</span><span class="tb-cr-txt">Designed by <b>Tejas H Badala</b> for BV</span><span class="tb-orn r">❦</span></div>
+    <div class="tb-wc" aria-hidden="true"></div>
+  </header>
+  <!-- Toolbar (PageMaker 7 style) -->
+  <div id="toolbar" role="toolbar" aria-label="Toolbar"></div>
+
+  <div id="main">
+    <div id="workarea">
+      <canvas id="ruler-corner" title="Double-click: fit in window"></canvas>
+      <canvas id="ruler-h"></canvas>
+      <canvas id="ruler-v"></canvas>
+      <div id="board" tabindex="-1">
+        <div id="board-inner">
+          <svg id="spread" xmlns="http://www.w3.org/2000/svg" text-rendering="geometricPrecision"></svg>
+        </div>
+      </div>
+      <!-- Story editor -->
+      <div id="story-editor" hidden>
+        <div class="se-head">
+          <span class="se-title" id="se-title">Story</span>
+          <span class="se-hint">Ctrl+E returns to layout · Enter = new paragraph · Shift+Enter = line break</span>
+          <button id="se-close" class="btn">Close story</button>
+        </div>
+        <div class="se-body">
+          <div id="se-styles" aria-hidden="true"></div>
+          <div id="se-text" contenteditable="true" spellcheck="false"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page icons + status -->
+  <div id="bottom">
+    <div id="page-icons"></div>
+    <div id="status"><span id="st-msg"></span><span id="st-pos"></span><span id="st-zoom"></span></div>
+  </div>
+</div>
+
+<!-- Floating palettes -->
+<section class="fpanel" id="pal-tools" data-title="Tools" style="left:34px;top:112px"></section>
+<section class="fpanel" id="pal-control" data-title="Control" style="left:110px;bottom:50px"></section>
+<section class="fpanel tabbed" id="pal-sc" data-tabs="Styles,Colors" style="right:28px;top:112px"></section>
+<section class="fpanel tabbed" id="pal-lm" data-tabs="Layers,Master Pages" style="right:28px;top:470px"></section>
+<section class="fpanel" id="iast-pal" data-title="IAST" style="right:280px;top:120px" hidden></section>
+<section class="fpanel" id="pal-pages" data-tabs="Pages,Outline" style="left:110px;top:112px" hidden></section>
+<section class="fpanel" id="pal-align" data-title="Align &amp; Distribute" style="left:370px;top:112px" hidden></section>
+<section class="fpanel" id="pal-glyph" data-title="Glyphs" style="right:290px;top:140px" hidden></section>
+
+<div id="welcome" hidden></div>
+<textarea id="ime" aria-label="Text input" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+<div id="font-pop" hidden></div>
+<div id="modal-root"></div>
+
+<script src="js/model.js"></script>
+<script src="js/translit.js"></script>
+<script src="js/bvkannada.js"></script>
+<script src="js/praja.js"></script>
+<script src="js/devlegacy.js"></script>
+<script src="js/legacy.js"></script>
+<script src="js/vendor/hyphen.js"></script>
+<script src="js/vendor/hyphen-en-us.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/textops.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+<script src="js/panels.js"></script>
+<script src="js/input.js"></script>
+<script src="js/pmconvert.js"></script>
+<script src="js/commands.js"></script>
+<script src="js/extra.js"></script>
+<script src="js/pmexport.js"></script>
+<script src="js/pm7.js"></script>
+<script src="js/scribus.js"></script>
+<script src="js/smartopen.js"></script>
+<script src="js/prajatools.js"></script>
+<script src="js/power.js"></script>
+<script src="js/modes.js"></script>
+<script src="js/features8.js"></script>
+<script src="js/idml.js"></script>
+<script src="js/features9.js"></script>
+<script src="js/menubar.js"></script>
+<script src="js/selftest.js"></script>
+</body>
+</html>

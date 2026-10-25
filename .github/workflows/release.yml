@@ -1,5 +1,6 @@
 # Builds BV Mudrana on Windows and publishes a GitHub release when a version tag is pushed.
-# Push a tag like v0.9.3 (matching package.json) with notes in build/release-notes/v0.9.3.md.
+# Push a tag like v0.9.3 (matching package.json), or run it from the Actions tab with that tag,
+# with notes in build/release-notes/v0.9.3.md. Running it from the Actions tab creates the tag on main.
 # The release gets the full installer and the small in-place updater.
 name: Release
 
@@ -9,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Existing tag to build, for example v0.9.2
+        description: Version tag to create and publish, for example v0.9.2 (must match package.json)
         required: true
 
 permissions:
@@ -22,8 +23,6 @@ jobs:
       TAG: ${{ github.event.inputs.tag || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.tag || github.ref }}
 
       - uses: actions/setup-node@v4
         with:
@@ -68,6 +67,7 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.TAG }}
+          target_commitish: ${{ github.sha }}
           name: BV Mudrana ${{ env.VERSION }}
           body_path: build/release-notes/${{ env.TAG }}.md
           make_latest: true

@@ -2,11 +2,15 @@
 
 A PageMaker-style layout program for Windows, built for books in Kannada, Devanagari and IAST, using real Unicode and proper shaping (ottus, vattaksharas, conjuncts, diacritics).
 
+## Download
+
+Get the latest version from **[Releases](https://github.com/RSNK21/bvmudrana/releases/latest)**. Product page: https://brahmavidya.co.in/bv-mudrana/
+
 ## Install
 
-**First time:** run **BV Mudrana Setup <version>.exe**.
+**First time:** run **BV-Mudrana-Setup-<version>.exe**.
 
-**Every later version:** run **BV Mudrana Update <version>.exe** (about 8 MB). It finds the installed BV Mudrana, closes it if it is open, puts the new version in place and opens it again. There is no need to uninstall or reinstall: settings, recent files, autosaves, shortcuts and file associations stay as they are. Each update carries the whole current program, so it works from any earlier version, even if you skipped some. (Running a newer full Setup over the installed one also works and keeps your settings.)
+**Every later version:** run **BV-Mudrana-Update-<version>.exe** (about 4 MB). It finds the installed BV Mudrana, closes it if it is open, puts the new version in place and opens it again. There is no need to uninstall or reinstall: settings, recent files, autosaves, shortcuts and file associations stay as they are. Each update carries the whole current program, so it works from any earlier version, even if you skipped some. (Running a newer full Setup over the installed one also works and keeps your settings.)
 
 
 The installer and the update aren't signed yet, so Windows may show "Windows protected your PC". Click **More info → Run anyway**.
@@ -182,3 +186,10 @@ npm run dist       # build the Windows installer into dist/
 - Book, index, spelling, hyphenation
 - Tables, inline graphics, saving back to PageMaker format
 - Editable keyboard shortcuts
+
+
+## Building and releasing
+
+`npm ci`, then `npm run dist` builds both files into `dist/` (on Linux it needs Wine). To publish a release, bump `version` in `package.json`, add notes in `build/release-notes/v<version>.md`, push, and run the **Release** workflow from the Actions tab with tag `v<version>`. It builds on Windows and attaches the Setup, the Update and SHA256SUMS.txt to a new release.
+
+Designed By Tejas H Badala and Dr R S Nandakumar for Brahmavidya

@@ -1,0 +1,74 @@
+# Builds BV Mudrana on Windows and publishes a GitHub release when a version tag is pushed.
+# Push a tag like v0.9.3 (matching package.json) with notes in build/release-notes/v0.9.3.md.
+# The release gets the full installer and the small in-place updater.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to build, for example v0.9.2
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      TAG: ${{ github.event.inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Check version matches tag
+        shell: bash
+        run: |
+          V=$(node -p "require('./package.json').version")
+          [ "v$V" = "$TAG" ] || { echo "package.json is $V but tag is $TAG"; exit 1; }
+          echo "VERSION=$V" >> $GITHUB_ENV
+
+      - run: npm ci
+
+      - name: Build installer
+        run: npx electron-builder --win --x64 --publish never
+
+      - name: Install NSIS
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "C:\Program Files (x86)\NSIS\makensis.exe")) { choco install nsis -y --no-progress }
+
+      - name: Build updater
+        shell: pwsh
+        working-directory: build
+        run: |
+          $runtime = (Get-Content bvm-runtime.txt -Raw).Trim()
+          $app = (Resolve-Path ..\dist\win-unpacked).Path
+          $out = Join-Path (Resolve-Path ..\dist).Path "BV-Mudrana-Update-$env:VERSION.exe"
+          & "C:\Program Files (x86)\NSIS\makensis.exe" /V2 "/DVERSION=$env:VERSION" "/DRUNTIME=$runtime" "/DAPPDIR=$app" "/DOUTFILE=$out" update.nsi
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Collect files
+        shell: bash
+        run: |
+          mkdir out
+          cp "dist/BV Mudrana Setup $VERSION.exe" "out/BV-Mudrana-Setup-$VERSION.exe"
+          cp "dist/BV-Mudrana-Update-$VERSION.exe" out/
+          cd out && sha256sum *.exe > SHA256SUMS.txt && cat SHA256SUMS.txt
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          name: BV Mudrana ${{ env.VERSION }}
+          body_path: build/release-notes/${{ env.TAG }}.md
+          make_latest: true
+          files: out/*
